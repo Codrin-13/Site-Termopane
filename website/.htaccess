@@ -1,0 +1,76 @@
+# ----------------------------------------------------------------------
+# 1. Securitate de bază
+# ----------------------------------------------------------------------
+# Dezactivează listarea directoarelor (dacă vizitatorul intră într-un folder fără fișier index)
+Options -Indexes
+
+# Ascunde semnătura serverului (motive de securitate)
+ServerSignature Off
+
+# ----------------------------------------------------------------------
+# 2. Forțare HTTPS / SSL
+# ----------------------------------------------------------------------
+# Redirecționează vizitatorii automat de la 'http' la 'https' dacă au certificat instalat
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ----------------------------------------------------------------------
+# 3. URL-uri Curate (fără terminația .html în browser)
+# ----------------------------------------------------------------------
+# Dacă cineva intră pe /contact, servește contact.html silențios
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L,QSA]
+
+# Opțional: Dacă cineva chiar scrie /contact.html manual, să-i facem redirect curat către /contact
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ /$1 [L,R=301]
+
+# ----------------------------------------------------------------------
+# 4. Pagină personalizată de eroare
+# ----------------------------------------------------------------------
+# Arată pagina ta de grafică 404 dacă cineva greșește linkul
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------
+# 5. Optimizare Viteză: Compresie GZIP
+# ----------------------------------------------------------------------
+# Micșorează dimensiunea codului înainte să fie trimis spre telefonul vizitatorului
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 6. Optimizare Viteză: Browser Caching (Cache în browser)
+# ----------------------------------------------------------------------
+# Ajută foarte mult deoarece salvează pozele în telefoanele vizitatorilor (se încarcă instant a doua oară)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Imagini: ține în cache masiv (1 an)
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # Fisiere de styling și script: 1 lună
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+
+  # HTML: Nu forțam masiv ca să putem vedea când schimbi un text la site
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
