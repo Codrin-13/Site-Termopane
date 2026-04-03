@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="88" ry="88" fill="url(#bg)"/>
+
+  <!-- Blue left accent bar -->
+  <rect x="0" y="0" width="8" height="512" rx="0" fill="#2563EB"/>
+  <!-- Blue top accent bar framing corner -->
+  <rect x="0" y="0" width="88" height="8" fill="#2563EB"/>
+
+  <!-- Blue diagonal accent behind T -->
+  <polygon points="54,80 200,80 200,108 54,108" fill="#2563EB" opacity="0.15"/>
+
+  <!-- T — bold blue, upper-left -->
+  <text
+    x="44"
+    y="310"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="255"
+    font-weight="900"
+    fill="#2563EB"
+  >T</text>
+
+  <!-- A — bold white, overlapping slightly -->
+  <text
+    x="168"
+    y="310"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="255"
+    font-weight="900"
+    fill="#FFFFFF"
+  >A</text>
+
+  <!-- P — smaller, bottom-right, as accent -->
+  <text
+    x="322"
+    y="440"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="165"
+    font-weight="900"
+    fill="#2563EB"
+    opacity="0.6"
+  >P</text>
+
+  <!-- Thin blue underline accent beneath TA -->
+  <rect x="44" y="322" width="290" height="6" rx="3" fill="#2563EB" opacity="0.5"/>
+</svg>

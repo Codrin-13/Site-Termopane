@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://termopaneaccesorii.ro/</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://termopaneaccesorii.ro/"/>
+  </url>
+
+  <url>
+    <loc>https://termopaneaccesorii.ro/catalog-pvc.html</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://termopaneaccesorii.ro/catalog-pvc.html"/>
+  </url>
+
+  <url>
+    <loc>https://termopaneaccesorii.ro/catalog-aluminiu.html</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://termopaneaccesorii.ro/catalog-aluminiu.html"/>
+  </url>
+
+  <url>
+    <loc>https://termopaneaccesorii.ro/contact.html</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

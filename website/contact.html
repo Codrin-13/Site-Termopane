@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Găsește-ne la showroom-ul din Otopeni, Ilfov. Harta, program, telefon și WhatsApp — Termopane Accesorii Paneluri.">
+    <meta property="og:title" content="Contact & Locație | Termopane Accesorii Paneluri">
+    <meta property="og:description" content="Showroom Otopeni, Ilfov. Program L–V 09:00–17:00, Sâm 09:00–12:00.">
+    <title>Contact & Locație | Termopane Accesorii Paneluri</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <meta name="theme-color" content="#1a1a1a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== CONTACT PAGE SPECIFIC ===== */
+        .contact-page-hero {
+            background: var(--c-dark);
+            padding-top: 9rem;
+            padding-bottom: 4rem;
+            text-align: center;
+        }
+        .contact-page-hero .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--c-accent); font-weight: 700; margin-bottom: 1rem;
+        }
+        .contact-page-hero .eyebrow::before {
+            content: ''; display: block; width: 20px; height: 2px; background: var(--c-accent);
+        }
+        .contact-page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            color: #fff; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .contact-page-hero p {
+            color: #888; font-size: 1.05rem; max-width: 480px; margin: 0 auto;
+        }
+
+        /* Info cards row */
+        .contact-info-section {
+            background: var(--c-bg);
+            padding: 5rem 0;
+        }
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        .contact-info-card {
+            background: var(--c-surface);
+            border: 1.5px solid var(--c-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            transition: var(--t);
+        }
+        .contact-info-card:hover {
+            border-color: var(--c-accent);
+            box-shadow: 0 12px 32px rgba(37,99,235,0.08);
+            transform: translateY(-3px);
+        }
+        .contact-info-card.whatsapp:hover {
+            border-color: #25D366;
+            box-shadow: 0 12px 32px rgba(37,211,102,0.1);
+        }
+        .cic-icon {
+            flex-shrink: 0;
+            width: 56px; height: 56px;
+            border-radius: var(--radius-sm);
+            background: var(--c-accent-lt);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--c-accent);
+        }
+        .cic-icon.green { background: rgba(37,211,102,0.12); color: #25D366; }
+        .cic-body { flex: 1; }
+        .cic-label {
+            display: block;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--c-accent); font-weight: 700; margin-bottom: 0.3rem;
+        }
+        .cic-label.green { color: #25D366; }
+        .cic-value {
+            font-size: 1.25rem; font-weight: 700; color: var(--c-dark);
+            display: block; margin-bottom: 0.2rem;
+        }
+        .cic-value a { color: var(--c-dark); text-decoration: none; transition: color var(--t); }
+        .cic-value a:hover { color: var(--c-accent); }
+        .cic-sub {
+            font-size: 0.82rem; color: var(--c-mid); line-height: 1.5;
+        }
+
+        /* Hours table */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.75rem;
+        }
+        .hours-table td {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: var(--c-dark);
+        }
+        .hours-table td:first-child {
+            color: var(--c-mid);
+            font-weight: 500;
+            width: 70px;
+        }
+        .hours-table td:last-child {
+            font-weight: 600;
+        }
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.7rem; font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        .status-badge.open { background: rgba(37,211,102,0.12); color: #16a34a; }
+        .status-badge.closed { background: rgba(220,38,38,0.1); color: #dc2626; }
+        .status-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+        /* Map section */
+        .map-section {
+            background: var(--c-dark);
+            padding: 5rem 0;
+        }
+        .map-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .map-section-header h2 {
+            font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+            color: #fff; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem;
+        }
+        .map-section-header p { color: #888; font-size: 1rem; }
+        .map-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1.5px solid rgba(255,255,255,0.1);
+            position: relative;
+            height: 520px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+        }
+        .map-wrapper iframe {
+            width: 100%; height: 100%;
+            border: none; display: block;
+        }
+        .map-actions {
+            display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+        }
+        .map-btn {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.875rem; font-weight: 600;
+            transition: var(--t);
+        }
+        .map-btn--primary { background: var(--c-accent); color: #fff; }
+        .map-btn--primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .map-btn--outline { border: 1.5px solid rgba(255,255,255,0.2); color: #fff; }
+        .map-btn--outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-1px); }
+
+        /* How to get there */
+        .directions-section {
+            background: var(--c-bg);
+            padding: 5rem 0;
+        }
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .direction-card {
+            background: var(--c-surface);
+            border: 1.5px solid var(--c-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--t);
+        }
+        .direction-card:hover {
+            border-color: var(--c-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(37,99,235,0.08);
+        }
+        .direction-icon {
+            font-size: 2rem; margin-bottom: 1rem;
+        }
+        .direction-card h3 {
+            font-size: 1rem; font-weight: 700; color: var(--c-dark); margin-bottom: 0.5rem;
+        }
+        .direction-card p {
+            font-size: 0.875rem; color: var(--c-mid); line-height: 1.6;
+        }
+
+        /* CTA bottom */
+        .contact-cta-bottom {
+            background: var(--c-dark);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .contact-cta-bottom h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            color: #fff; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem;
+        }
+        .contact-cta-bottom p {
+            color: #888; margin-bottom: 2.5rem; font-size: 1rem;
+        }
+        .cta-buttons-row {
+            display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-cards-grid { grid-template-columns: 1fr; }
+            .directions-grid { grid-template-columns: 1fr; }
+            .map-wrapper { height: 360px; }
+        }
+        @media (max-width: 480px) {
+            .map-wrapper { height: 280px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-main">Paneluri Exterioare</span>
+                <span class="logo-sub">Uși de Intrare Premium</span>
+            </a>
+            <div class="nav-links">
+                <a href="catalog-pvc.html">Modele PVC</a>
+                <a href="catalog-aluminiu.html">Modele Aluminiu</a>
+                <a href="index.html#avantaje">Specificații</a>
+                <a href="contact.html" class="active-link">Contact</a>
+                <a href="tel:0744613223" class="btn btn-primary" id="navCta">📞 Sună Acum</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Meniu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <a href="index.html">Acasă</a>
+        <a href="catalog-pvc.html">Modele PVC</a>
+        <a href="catalog-aluminiu.html">Modele Aluminiu</a>
+        <a href="index.html#avantaje">Specificații</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:0744613223" class="btn btn-primary" style="margin-top:1rem">📞 Sună Acum</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="contact-page-hero">
+        <div class="container">
+            <div class="eyebrow">Unde ne găsești</div>
+            <h1>Contact &amp; Locație</h1>
+            <p>Showroom fizic în Otopeni, Ilfov — vino să vezi produsele în mod direct sau contactează-ne online.</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT INFO CARDS ===== -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-cards-grid reveal">
+
+                <!-- Telefon -->
+                <div class="contact-info-card">
+                    <div class="cic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" />
+                        </svg>
+                    </div>
+                    <div class="cic-body">
+                        <span class="cic-label">Telefon</span>
+                        <span class="cic-value"><a href="tel:0744613223">0744 613 223</a></span>
+                        <span class="cic-sub">Răspundem L–V în orele de program</span>
+                    </div>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-info-card whatsapp">
+                    <div class="cic-icon green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                        </svg>
+                    </div>
+                    <div class="cic-body">
+                        <span class="cic-label green">WhatsApp</span>
+                        <span class="cic-value"><a href="https://wa.me/40743184174" target="_blank">0743 184 174</a></span>
+                        <span class="cic-sub">Trimite poze, dimensiuni sau întrebări direct pe WhatsApp</span>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-info-card">
+                    <div class="cic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                    <div class="cic-body">
+                        <span class="cic-label">E-mail</span>
+                        <span class="cic-value"><a href="mailto:mtcdana@yahoo.com">mtcdana@yahoo.com</a></span>
+                        <span class="cic-sub">Răspundem în maxim 24 de ore lucrătoare</span>
+                    </div>
+                </div>
+
+                <!-- Program -->
+                <div class="contact-info-card">
+                    <div class="cic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div class="cic-body">
+                        <span class="cic-label">Program</span>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Luni</td>
+                                <td>09:00 – 17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Marți</td>
+                                <td>09:00 – 17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Miercuri</td>
+                                <td>09:00 – 17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Joi</td>
+                                <td>09:00 – 17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Vineri</td>
+                                <td>09:00 – 17:00</td>
+                            </tr>
+                            <tr>
+                                <td>Sâmbătă</td>
+                                <td>09:00 – 12:00</td>
+                            </tr>
+                            <tr>
+                                <td>Duminică</td>
+                                <td><span style="color: var(--c-mid);">Închis</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Adresă — full width -->
+                <div class="contact-info-card" style="grid-column: 1/-1;">
+                    <div class="cic-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <div class="cic-body">
+                        <span class="cic-label">Showroom &amp; Adresă</span>
+                        <span class="cic-value">Termopane Accesorii Paneluri</span>
+                        <span class="cic-sub" style="font-size:0.95rem; margin-top: 0.25rem; display:block;">Otopeni, Județul Ilfov, România</span>
+                        <a href="https://www.google.com/maps/place/Termopane+Accesorii+Paneluri/@44.5511128,26.07" target="_blank" rel="noopener" class="location-btn" style="margin-top: 0.75rem;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            Deschide în Google Maps
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LARGE MAP ===== -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-section-header reveal">
+                <div class="eyebrow" style="display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--c-accent);font-weight:700;margin-bottom:.75rem;">
+                    <span style="display:block;width:20px;height:2px;background:var(--c-accent);"></span>
+                    Harta
+                </div>
+                <h2>Cum ne găsești</h2>
+                <p>Showroom-ul nostru se află în Otopeni, ușor accesibil din București și din toată zona Ilfov.</p>
+            </div>
+            <div class="map-wrapper reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d177.7027409020551!2d26.076106195105176!3d44.55111283494904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b21dde45029705%3A0x5b52efa6216f22be!2sTermopane%20Accesorii%20Paneluri!5e0!3m2!1sen!2sro!4v1775204832389!5m2!1sen!2sro"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Termopane Accesorii Paneluri pe Google Maps">
+                </iframe>
+            </div>
+            <div class="map-actions reveal">
+                <a href="https://www.google.com/maps/place/Termopane+Accesorii+Paneluri/@44.5511128,26.07" target="_blank" rel="noopener" class="map-btn map-btn--primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Navigare Google Maps
+                </a>
+                <a href="https://waze.com/ul?ll=44.5511128,26.076106&navigate=yes" target="_blank" rel="noopener" class="map-btn map-btn--outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="10" r="3"/>
+                        <path d="M12 2a8 8 0 0 1 8 8c0 5.25-8 14-8 14S4 15.25 4 10a8 8 0 0 1 8-8z"/>
+                    </svg>
+                    Waze
+                </a>
+                <a href="tel:0744613223" class="map-btn map-btn--outline">
+                    📞 Sună pentru indicații
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW TO GET THERE ===== -->
+    <section class="directions-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <div class="eyebrow">Cum ajungi</div>
+                <h2>Indicații de Orientare</h2>
+                <p>Câteva repere ca să ne găsești ușor.</p>
+            </div>
+            <div class="directions-grid">
+                <div class="direction-card reveal">
+                    <div class="direction-icon">🚗</div>
+                    <h3>Cu mașina</h3>
+                    <p>Din București, ieși pe DN1 (Calea Griviței) spre Otopeni. Urmărește indicatoarele spre centrul orașului Otopeni.</p>
+                </div>
+                <div class="direction-card reveal">
+                    <div class="direction-icon">✈️</div>
+                    <h3>De la Aeroport</h3>
+                    <p>La câteva minute de Aeroportul Internaţional Henri Coandă, ideal dacă ești în tranzit sau în zonă.</p>
+                </div>
+                <div class="direction-card reveal">
+                    <div class="direction-icon">📍</div>
+                    <h3>Punct de reper</h3>
+                    <p>Suntem în zona industrială din Otopeni. Folosește Google Maps sau Waze pentru navigare precisă.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BOTTOM ===== -->
+    <section class="contact-cta-bottom">
+        <div class="container">
+            <h2 class="reveal">Necesiti ajutor sau consiliere?</h2>
+            <p class="reveal">Echipa noastră este disponibilă să te ajute cu alegerea panelului potrivit.</p>
+            <div class="cta-buttons-row reveal">
+                <a href="tel:0744613223" class="btn btn-primary">📞 Sună Acum</a>
+                <a href="https://wa.me/40743184174" target="_blank" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">
+                    💬 WhatsApp
+                </a>
+                <button class="btn btn-outline cere-oferta-trigger" style="border-color:rgba(255,255,255,0.3);color:#fff;">Cere Ofertă</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" style="padding-top: 2rem;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Termopane Accesorii Paneluri. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky mobile call button -->
+    <a href="tel:0744613223" class="mobile-sticky-call" id="mobileStickyCall" aria-label="Sună Acum">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" />
+        </svg>
+        <span>Sună Acum</span>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow admin/internal files
+Disallow: /assets/
+Disallow: /404.html
+
+Sitemap: https://termopaneaccesorii.ro/sitemap.xml
