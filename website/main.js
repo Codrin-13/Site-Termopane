@@ -76,17 +76,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-       Magnetic Hover Effect for CTA Button
+       Magnetic Hover Effect for CTA Button (Optimized)
        ========================================= */
     const magneticBtn = document.querySelector('.sticky-cta');
     if (magneticBtn) {
+        let rect;
+        let ticking = false;
+
+        magneticBtn.addEventListener('mouseenter', () => {
+             rect = magneticBtn.getBoundingClientRect();
+        });
+
         magneticBtn.addEventListener('mousemove', (e) => {
-            const rect = magneticBtn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.1)`;
+            if (!rect) rect = magneticBtn.getBoundingClientRect();
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.1)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
         magneticBtn.addEventListener('mouseleave', () => {
+            rect = null;
             magneticBtn.style.transform = `translate(0px, 0px) scale(1)`;
         });
     }
