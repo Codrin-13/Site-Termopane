@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        Interactive Quote Chat Widget
        ========================================= */
-    const WHATSAPP_NUMBER = '40743184174';
+    const WHATSAPP_NUMBER = '40744613223';
 
     const chatHtml = `
     <button class="chat-fab" id="chatFabBtn" aria-label="Deschide chat oferta">
